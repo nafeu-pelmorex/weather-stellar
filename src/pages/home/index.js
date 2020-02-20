@@ -3,17 +3,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 import { MainContext } from '../../context/main';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    paddingTop: '2em'
+    padding: '1em'
   },
-  paper: {
-    padding: '2em'
-  }
+  paper: {}
 }));
 
 function Home() {
@@ -21,15 +17,11 @@ function Home() {
   const classes = useStyles();
 
   return (
-    <Container className={classes.root} maxWidth="md">
-      <Grid item xs={12}>
-        <Paper className={classes.paper}>
-          <Typography gutterBottom>
-            Get Started
-          </Typography>
-        </Paper>
-      </Grid>
-    </Container>
+    <Grid item xs={12}>
+      <Typography gutterBottom>
+        <Link to="/upload">Get Started</Link>
+      </Typography>
+    </Grid>
   );
 }
 

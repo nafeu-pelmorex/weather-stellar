@@ -6,9 +6,9 @@ const Navigation = ({ location }) => {
   if (location.pathname !== '/') {
     return (
       <React.Fragment>
-          <Link to="/upload">Upload</Link>
-          <Link to="/magic">Magic</Link>
-          <Link to="/about">About Us</Link>
+        <Link to="/upload">Upload</Link>
+        <Link to="/magic">Magic</Link>
+        <Link to="/about">About Us</Link>
       </React.Fragment>
     )
   }

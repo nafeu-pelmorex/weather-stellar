@@ -9,8 +9,22 @@ import About from './pages/about';
 import { MainContextProvider } from "./context/main";
 import Title from './components/title';
 import Navigation from './components/navigation';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
 
 const history = createBrowserHistory();
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    paddingTop: '2em'
+  },
+  paper: {
+    padding: '1em'
+  }
+}));
 
 function AppContainer() {
   return (
@@ -21,18 +35,24 @@ function AppContainer() {
 }
 
 function App() {
+  const classes = useStyles();
+
   return (
     <HashRouter basename="/" history={history}>
-      <React.Fragment>
-        <Title title={'Weather Stellar'} />
-        <Navigation/>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/upload" component={Upload} />
-        <Route exact path="/magic" component={Magic} />
-        <Route exact path="/about" component={About} />
-      </React.Fragment>
+      <Container className={classes.root} maxWidth="md">
+        <Grid item xs={12}>
+          <Paper className={classes.paper}>
+            <Title title={'Weather Stellar'} />
+            <Navigation/>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/upload" component={Upload} />
+            <Route exact path="/magic" component={Magic} />
+            <Route exact path="/about" component={About} />
+          </Paper>
+        </Grid>
+      </Container>
     </HashRouter>
-  )
+  );
 }
 
 export default AppContainer;
