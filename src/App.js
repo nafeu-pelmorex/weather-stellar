@@ -1,5 +1,6 @@
+import 'typeface-roboto';
 import React from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { HashRouter, Route } from "react-router-dom";
 import { createBrowserHistory } from 'history';
 import Home from './pages/home';
 import Upload from './pages/upload';
@@ -21,7 +22,7 @@ function AppContainer() {
 
 function App() {
   return (
-    <Router history={history}>
+    <HashRouter basename="/" history={history}>
       <React.Fragment>
         <Title title={'Weather Stellar'} />
         <Navigation/>
@@ -30,7 +31,7 @@ function App() {
         <Route exact path="/magic" component={Magic} />
         <Route exact path="/about" component={About} />
       </React.Fragment>
-    </Router>
+    </HashRouter>
   )
 }
 
