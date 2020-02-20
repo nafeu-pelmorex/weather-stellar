@@ -12,24 +12,37 @@ import Navigation from './components/navigation';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Container from '@material-ui/core/Container';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
+import Bar from './components/bar';
 
 const history = createBrowserHistory();
 
 const useStyles = makeStyles(theme => ({
   root: {
-    paddingTop: '4em'
+    paddingTop: '2em'
   },
   paper: {
-    padding: '1em'
+    padding: '1em',
+    height: "100%"
   },
 }));
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#2c3e50',
+    }
+  },
+})
 
 function AppContainer() {
   return (
     <MainContextProvider>
-      <App/>
+      <ThemeProvider theme={theme}>
+        <App/>
+      </ThemeProvider>
     </MainContextProvider>
   );
 }
@@ -39,11 +52,12 @@ function App() {
 
   return (
     <HashRouter basename="/" history={history}>
-      <Container className={classes.root} maxWidth="md">
+      <Container className={classes.root} maxWidth="lg">
         <Grid item xs={12}>
-          <Paper className={classes.paper}>
+          <Bar/>
+          <Paper className={classes.paper} square elevation={0}>
             <Navigation/>
-            <Box m={2}>
+            <Box mt={2}>
               <Route exact path="/" component={Home} />
               <Route exact path="/upload" component={Upload} />
               <Route exact path="/magic" component={Magic} />

@@ -6,7 +6,7 @@ function Magic() {
   return (
     <React.Fragment>
       <Typography gutterBottom>
-        Magic Section Content
+        {/*Magic Section Content*/}
       </Typography>
       <Chart />
     </React.Fragment>

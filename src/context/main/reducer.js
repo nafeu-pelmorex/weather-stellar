@@ -1,13 +1,13 @@
 export const initialState = {
-  count: 0,
+  file: {},
 };
 
 export const reducer = (state, action) => {
   switch (action.type) {
-    case 'incrementCount':
+    case 'UPLOAD_FILE':
       return {
         ...state,
-        count: state.count + 1,
+        file: action.payload,
       };
     default:
       return state;

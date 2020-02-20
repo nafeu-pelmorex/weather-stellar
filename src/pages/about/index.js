@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 function About() {
   return (
     <Typography gutterBottom>
-      About Us Section
+      {/*About Us Section*/}
     </Typography>
   );
 }
