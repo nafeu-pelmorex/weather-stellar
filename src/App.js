@@ -1,4 +1,5 @@
 import 'typeface-roboto';
+import './app.css';
 import React from 'react';
 import { HashRouter, Route } from "react-router-dom";
 import { createBrowserHistory } from 'history';
