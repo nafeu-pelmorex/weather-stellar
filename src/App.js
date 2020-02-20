@@ -7,12 +7,10 @@ import Upload from './pages/upload';
 import Magic from './pages/magic';
 import About from './pages/about';
 import { MainContextProvider } from "./context/main";
-import Title from './components/title';
 import Navigation from './components/navigation';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
 const history = createBrowserHistory();
@@ -42,7 +40,6 @@ function App() {
       <Container className={classes.root} maxWidth="md">
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            <Title title={'Weather Stellar'} />
             <Navigation/>
             <Route exact path="/" component={Home} />
             <Route exact path="/upload" component={Upload} />

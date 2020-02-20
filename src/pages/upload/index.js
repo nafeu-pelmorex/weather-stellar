@@ -1,11 +1,11 @@
-import './index.css';
 import React from 'react';
+import Typography from '@material-ui/core/Typography';
 
 function Upload() {
   return (
-    <div>
-      Upload Page
-    </div>
+    <Typography gutterBottom>
+      Upload Section
+    </Typography>
   );
 }
 

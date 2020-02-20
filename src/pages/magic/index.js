@@ -1,11 +1,11 @@
-import './index.css';
 import React from 'react';
+import Typography from '@material-ui/core/Typography';
 
 function Magic() {
   return (
-    <div>
-      Magic Page
-    </div>
+    <Typography gutterBottom>
+      Magic Section
+    </Typography>
   );
 }
 

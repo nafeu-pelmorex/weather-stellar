@@ -1,11 +1,11 @@
-import './index.css';
 import React from 'react';
+import Typography from '@material-ui/core/Typography';
 
 function About() {
   return (
-    <div>
-      About Page
-    </div>
+    <Typography gutterBottom>
+      About Us Section
+    </Typography>
   );
 }
 
