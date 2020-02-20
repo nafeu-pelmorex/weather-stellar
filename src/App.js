@@ -1,26 +1,37 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { createBrowserHistory } from 'history';
+import Home from './pages/home';
+import Upload from './pages/upload';
+import Magic from './pages/magic';
+import About from './pages/about';
+import { MainContextProvider } from "./context/main";
+import Title from './components/title';
+import Navigation from './components/navigation';
 
-function App() {
+const history = createBrowserHistory();
+
+function AppContainer() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MainContextProvider>
+      <App/>
+    </MainContextProvider>
   );
 }
 
-export default App;
+function App() {
+  return (
+    <Router history={history}>
+      <React.Fragment>
+        <Title title={'Weather Stellar'} />
+        <Navigation/>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/upload" component={Upload} />
+        <Route exact path="/magic" component={Magic} />
+        <Route exact path="/about" component={About} />
+      </React.Fragment>
+    </Router>
+  )
+}
+
+export default AppContainer;
