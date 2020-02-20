@@ -1,11 +1,15 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
+import Chart from '../../widgets/chart';
 
 function Magic() {
   return (
-    <Typography gutterBottom>
-      Magic Section
-    </Typography>
+    <React.Fragment>
+      <Typography gutterBottom>
+        Magic Section Content
+      </Typography>
+      <Chart />
+    </React.Fragment>
   );
 }
 

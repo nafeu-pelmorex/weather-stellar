@@ -12,16 +12,17 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
+import Box from '@material-ui/core/Box';
 
 const history = createBrowserHistory();
 
 const useStyles = makeStyles(theme => ({
   root: {
-    paddingTop: '2em'
+    paddingTop: '4em'
   },
   paper: {
     padding: '1em'
-  }
+  },
 }));
 
 function AppContainer() {
@@ -41,10 +42,12 @@ function App() {
         <Grid item xs={12}>
           <Paper className={classes.paper}>
             <Navigation/>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/upload" component={Upload} />
-            <Route exact path="/magic" component={Magic} />
-            <Route exact path="/about" component={About} />
+            <Box m={2}>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/upload" component={Upload} />
+              <Route exact path="/magic" component={Magic} />
+              <Route exact path="/about" component={About} />
+            </Box>
           </Paper>
         </Grid>
       </Container>
