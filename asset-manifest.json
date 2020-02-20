@@ -1,22 +1,26 @@
 {
   "files": {
-    "main.css": "/weather-stellar/static/css/main.074d68e4.chunk.css",
-    "main.js": "/weather-stellar/static/js/main.c659979f.chunk.js",
-    "main.js.map": "/weather-stellar/static/js/main.c659979f.chunk.js.map",
+    "main.css": "/weather-stellar/static/css/main.d498bfb3.chunk.css",
+    "main.js": "/weather-stellar/static/js/main.f046c62e.chunk.js",
+    "main.js.map": "/weather-stellar/static/js/main.f046c62e.chunk.js.map",
     "runtime-main.js": "/weather-stellar/static/js/runtime-main.aec5ec36.js",
     "runtime-main.js.map": "/weather-stellar/static/js/runtime-main.aec5ec36.js.map",
-    "static/js/2.53cf7937.chunk.js": "/weather-stellar/static/js/2.53cf7937.chunk.js",
-    "static/js/2.53cf7937.chunk.js.map": "/weather-stellar/static/js/2.53cf7937.chunk.js.map",
+    "static/css/2.e5cf7328.chunk.css": "/weather-stellar/static/css/2.e5cf7328.chunk.css",
+    "static/js/2.40f8f4f5.chunk.js": "/weather-stellar/static/js/2.40f8f4f5.chunk.js",
+    "static/js/2.40f8f4f5.chunk.js.map": "/weather-stellar/static/js/2.40f8f4f5.chunk.js.map",
     "index.html": "/weather-stellar/index.html",
-    "precache-manifest.072d6006280d934bedfd095db49f6ff5.js": "/weather-stellar/precache-manifest.072d6006280d934bedfd095db49f6ff5.js",
+    "precache-manifest.232d4cb1b47de273befe1f2a69103cc6.js": "/weather-stellar/precache-manifest.232d4cb1b47de273befe1f2a69103cc6.js",
     "service-worker.js": "/weather-stellar/service-worker.js",
-    "static/css/main.074d68e4.chunk.css.map": "/weather-stellar/static/css/main.074d68e4.chunk.css.map",
-    "static/js/2.53cf7937.chunk.js.LICENSE.txt": "/weather-stellar/static/js/2.53cf7937.chunk.js.LICENSE.txt"
+    "static/css/2.e5cf7328.chunk.css.map": "/weather-stellar/static/css/2.e5cf7328.chunk.css.map",
+    "static/css/main.d498bfb3.chunk.css.map": "/weather-stellar/static/css/main.d498bfb3.chunk.css.map",
+    "static/js/2.40f8f4f5.chunk.js.LICENSE.txt": "/weather-stellar/static/js/2.40f8f4f5.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/weather-stellar/static/media/roboto-latin-900italic.ebf6d164.woff2"
   },
   "entrypoints": [
     "static/js/runtime-main.aec5ec36.js",
-    "static/js/2.53cf7937.chunk.js",
-    "static/css/main.074d68e4.chunk.css",
-    "static/js/main.c659979f.chunk.js"
+    "static/css/2.e5cf7328.chunk.css",
+    "static/js/2.40f8f4f5.chunk.js",
+    "static/css/main.d498bfb3.chunk.css",
+    "static/js/main.f046c62e.chunk.js"
   ]
 }
