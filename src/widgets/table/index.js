@@ -16,20 +16,53 @@ const useStyles = makeStyles({
   },
 });
 
-function createData(locationId, lat, long, timestamp) {
-  return { locationId, lat, long, timestamp };
+function generateId() {
+  const s4 = () => {
+    return Math.floor((1 + Math.random()) * 0x10000)
+        .toString(16)
+        .substring(1);
+  }
+  const guid = () => {
+      let s4 = () => {
+          return Math.floor((1 + Math.random()) * 0x10000)
+              .toString(16)
+              .substring(1);
+      }
+      //return id of format 'aaaaaaaa'-'aaaa'-'aaaa'-'aaaa'-'aaaaaaaaaaaa'
+      return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+  }
+  return guid();
+};
+
+function createData(lat, long, timestamp) {
+  return {
+    locationId: generateId(),
+    lat,
+    long,
+    timestamp
+  };
 }
 
-const rows = [
-  createData('6e54b5b3-34c0-4887-bb42-39379704ec47', 1.321, 1.821, "2020-02-21"),
-  createData('6e12d9c3-8c42-41f2-a729-f9697b8df6fb', 1.851, 1.932, "2020-02-22"),
-  createData('0118b484-5cee-426e-96bb-a42a334a7d54', 1.132, 0.513, "2020-02-23"),
-  createData('977762e3-2868-4740-b7ac-1f747e6eaa6d', 1.974, 1.103, "2020-02-24"),
-  createData('6393e810-1a17-43e6-b92a-2b8d8655d3d9', 2.124, 1.994, "2020-02-25"),
-];
+function createLastData() {
+  return {
+    locationId: '...',
+    lat: '...',
+    long: '...',
+    timestamp: '...'
+  };
+}
 
 export default function DenseTable({ industry }) {
   const classes = useStyles();
+
+  const rows = [
+    createData(1.321, 1.821, "2020-02-21"),
+    createData(1.851, 1.932, "2020-02-22"),
+    createData(1.132, 0.513, "2020-02-23"),
+    createData(1.974, 1.103, "2020-02-24"),
+    createData(2.124, 1.994, "2020-02-25"),
+    createLastData(),
+  ];
 
   const getLabelByIndustry = (industry) => {
     if (industry === 'pageviews') {
@@ -46,6 +79,9 @@ export default function DenseTable({ industry }) {
       <Box p={2}>
         <Typography variant="h5" gutterBottom color="primary">
           {getLabelByIndustry(industry)}
+        </Typography>
+        <Typography variant="body2" component="p" gutterBottom color="textSecondary">
+          Preview Of Uploaded Data:
         </Typography>
       </Box>
       <TableContainer component={Paper}>
