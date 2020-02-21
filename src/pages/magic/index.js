@@ -1,59 +1,38 @@
 import React, { useContext } from 'react';
 import Chart from '../../widgets/chart';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
-import InputLabel from '@material-ui/core/InputLabel';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import NativeSelect from '@material-ui/core/NativeSelect';
 import { makeStyles } from '@material-ui/core/styles';
 import { MainContext } from '../../context/main';
-import _ from 'lodash';
-import FormLabel from '@material-ui/core/FormLabel';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Radio from '@material-ui/core/Radio';
 import Options from '../../widgets/options';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
+import DataService from '../../data';
+
 
 const useStyles = makeStyles(theme => ({
-  formControl: {
-    width: '100%'
-  }
+  formControl: {}
 }));
 
 function Magic() {
+  const { state } = useContext(MainContext);
   return (
     <Grid item xs={12}>
       <Grid item xs={12}>
         <Box p={1}>
-          <Options options={
-            [
-              {
-                label: 'Toronto',
-                value: 'toronto',
-              },
-              {
-                label: 'Ottawa',
-                value: 'ottawa',
-              },
-              {
-                label: 'Montreal',
-                value: 'montreal',
-              }
-            ]
-          }/>
+          <Options options={state.locationOptions}/>
+        </Box>
+      </Grid>
+      <Grid item xs={12}>
+        <Box p={1}>{
+          <Prediction prediction={state.prediction} />
+        }
         </Box>
       </Grid>
       <Grid item xs={12}>
         <Box p={1}>
-          <Prediction />
-        </Box>
-      </Grid>
-      <Grid item xs={12}>
-        <Box p={1}>
-          <Performance />
+          <Performance performance={state.performance} />
         </Box>
       </Grid>
       <Grid item xs={12}>
@@ -65,26 +44,81 @@ function Magic() {
   );
 }
 
-function Prediction() {
+function Prediction({ prediction }) {
   return (
     <Grid container spacing={2}>
       <Grid xs={6}>
         <Box p={2}>
-          <Chart />
+          <Chart
+            title={prediction.title}
+            subtext={prediction.subtext}
+            series={prediction.series}
+            dates={prediction.dates}
+          />
         </Box>
       </Grid>
       <Grid xs={6}>
         <Box p={2}>
-          Information
+          <Card>
+            <CardContent>
+              <Typography color="textSecondary" gutterBottom>
+                What does this mean?
+              </Typography>
+              <Typography variant="h5" component="h2">
+                be
+              </Typography>
+              <Typography color="textSecondary">
+                adjective
+              </Typography>
+              <Typography variant="body2" component="p">
+                well meaning and kindly.
+                <br />
+                {'"a benevolent smile"'}
+              </Typography>
+            </CardContent>
+          </Card>
         </Box>
       </Grid>
     </Grid>
   );
 }
 
-function Performance() {
+function Performance({ performance }) {
   return (
-    <div>[PERFORMANCE]</div>
+    <Grid container spacing={2}>
+      <Grid xs={6}>
+        <Box p={2}>
+          <Chart
+            title={performance.title}
+            subtext={performance.subtext}
+            series={performance.series}
+            dates={performance.dates}
+          />
+        </Box>
+      </Grid>
+      <Grid xs={6}>
+        <Box p={2}>
+          <Card>
+            <CardContent>
+              <Typography color="textSecondary" gutterBottom>
+                What does this mean?
+              </Typography>
+              <Typography variant="h5" component="h2">
+                be
+              </Typography>
+              <Typography color="textSecondary">
+                adjective
+              </Typography>
+              <Typography variant="body2" component="p">
+                well meaning and kindly.
+                <br />
+                {'"a benevolent smile"'}
+              </Typography>
+            </CardContent>
+          </Card>
+        </Box>
+      </Grid>
+    </Grid>
   );
 }
 

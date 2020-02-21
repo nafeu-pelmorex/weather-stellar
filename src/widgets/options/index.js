@@ -34,7 +34,6 @@ function LocationSelection({ handleChange, selection, options }) {
           id: 'location-native-simple',
         }}
       >
-        <option value="" />
         {_.map(options, ({ value, label }) => {
           return (
             <option value={value}>{label}</option>
