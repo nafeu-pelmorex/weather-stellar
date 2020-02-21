@@ -14,6 +14,8 @@ const ElectricityService = {
   },
   getPredictionData: (location, weatherVariable) => {
     const { prediction } = getDataByLocation(electricityData, location);
+    const locationData = getRawLocation(electricityData, location);
+
     const dates = _.map(prediction, ({ ts }) => {
       return ts;
     });
@@ -58,8 +60,8 @@ const ElectricityService = {
       subtext: `Electricity demand forecast for ${_.startCase(_.toLower(location))} (2 weeks)`,
       title: "Forecast",
       analysis: [
-        prediction.temp_corr,
-        prediction.precip_corr
+        locationData.location.temp_corr,
+        locationData.location.precip_corr
       ],
       legend,
     };
@@ -68,6 +70,7 @@ const ElectricityService = {
   },
   getPerformanceData: (location, weatherVariable) => {
     const { performance } = getDataByLocation(electricityData, location);
+    const locationData = getRawLocation(electricityData, location);
 
     const filteredPerformanceData = getFilteredPerformanceData(performance);
 
@@ -100,7 +103,7 @@ const ElectricityService = {
       subtext: `Actual vs Predicted`,
       title: "Performance",
       analysis: [
-        performance.accuracy
+        locationData.location.accuracy
       ],
       legend,
     };
@@ -120,6 +123,7 @@ const RestaurantService = {
   },
   getPredictionData: (location, weatherVariable) => {
     const { prediction } = getDataByLocation(restaurantData, location);
+    const locationData = getRawLocation(restaurantData, location);
     const dates = _.map(prediction, ({ ts }) => {
       return ts;
     });
@@ -164,8 +168,8 @@ const RestaurantService = {
       subtext: `Restaurant sales forecast for ${_.startCase(_.toLower(location))} (2 weeks)`,
       title: "Forecast",
       analysis: [
-        prediction.temp_corr,
-        prediction.precip_corr
+        locationData.location.temp_corr,
+        locationData.location.precip_corr
       ],
       legend,
     };
@@ -174,6 +178,7 @@ const RestaurantService = {
   },
   getPerformanceData: (location, weatherVariable) => {
     const { performance } = getDataByLocation(restaurantData, location);
+    const locationData = getRawLocation(restaurantData, location);
 
     const filteredPerformanceData = getFilteredPerformanceData(performance);
 
@@ -206,7 +211,7 @@ const RestaurantService = {
       subtext: `Actual vs Predicted`,
       title: "Performance",
       analysis: [
-        performance.accuracy
+        locationData.location.accuracy
       ],
       legend,
     };
@@ -226,6 +231,7 @@ const PageviewsService = {
   },
   getPredictionData: (location, weatherVariable) => {
     const { prediction } = getDataByLocation(pageviewsData, location);
+    const locationData = getRawLocation(pageviewsData, location);
     const dates = _.map(prediction, ({ ts }) => {
       return ts;
     });
@@ -270,8 +276,8 @@ const PageviewsService = {
       subtext: `Page view forecast for ${_.startCase(_.toLower(location))} (2 weeks)`,
       title: "Forecast",
       analysis: [
-        prediction.temp_corr,
-        prediction.precip_corr
+        locationData.location.temp_corr,
+        locationData.location.precip_corr
       ],
       legend,
     };
@@ -280,6 +286,7 @@ const PageviewsService = {
   },
   getPerformanceData: (location, weatherVariable) => {
     const { performance } = getDataByLocation(pageviewsData, location);
+    const locationData = getRawLocation(pageviewsData, location);
 
     const filteredPerformanceData = getFilteredPerformanceData(performance);
 
@@ -312,7 +319,7 @@ const PageviewsService = {
       subtext: `Actual vs Predicted`,
       title: "Performance",
       analysis: [
-        performance.accuracy
+        locationData.location.accuracy
       ],
       legend,
     };
@@ -322,6 +329,10 @@ const PageviewsService = {
 }
 
 function getDataByLocation(data, location) {
+  return _.filter(data, item => item.location.name === location)[0];
+}
+
+function getRawLocation(data, location) {
   return _.filter(data, item => item.location.name === location)[0];
 }
 
