@@ -20,9 +20,11 @@ function Upload() {
 
   return (
     <React.Fragment>
-      <Typography gutterBottom>
-        {/*Upload Section*/}
-      </Typography>
+      <Box p={4}>
+        <Typography gutterBottom>
+          Simply upload your data to the platform. The data can include any metric with a timestamp and location attached to it. If you are a visual learner (like us), check out the template below for the data set format we accept :)
+        </Typography>
+      </Box>
       <DropZone />
       {state.file.path ? (
         <React.Fragment>

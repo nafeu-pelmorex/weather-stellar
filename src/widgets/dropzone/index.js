@@ -22,7 +22,7 @@ function DropZone(props) {
   return (
     <Paper {...getRootProps({className: 'dropzone'})} variant="outlined" elevation={0}>
       <input {...getInputProps()} />
-      <Box p={4}>
+      <Box p={3}>
         <Typography align="center" color="textSecondary">
           {state.file.path ? state.file.name : "Drag 'n' drop a file here, or click to select a file."}
         </Typography>
