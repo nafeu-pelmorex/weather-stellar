@@ -65,7 +65,10 @@ const ElectricityService = {
   },
   getPerformanceData: (location, weatherVariable) => {
     const { performance } = getDataByLocation(electricityData, location);
-    const dates = _.map(performance, ({ ts }) => {
+
+    const filteredPerformanceData = getFilteredPerformanceData(performance);
+
+    const dates = _.map(filteredPerformanceData, ({ ts }) => {
       return ts;
     });
 
@@ -73,14 +76,14 @@ const ElectricityService = {
       {
         name: 'Actual',
         type: 'line',
-        data: _.map(performance, ({ v1 }) => {
+        data: _.map(filteredPerformanceData, ({ v1 }) => {
           return v1;
         })
       },
       {
         name: 'Predicted',
         type: 'line',
-        data: _.map(performance, ({ v2 }) => {
+        data: _.map(filteredPerformanceData, ({ v2 }) => {
           return v2;
         })
       }
@@ -162,8 +165,11 @@ const RestaurantService = {
     return output;
   },
   getPerformanceData: (location, weatherVariable) => {
-    const { performance } = getDataByLocation(electricityData, location);
-    const dates = _.map(performance, ({ ts }) => {
+    const { performance } = getDataByLocation(restaurantData, location);
+
+    const filteredPerformanceData = getFilteredPerformanceData(performance);
+
+    const dates = _.map(filteredPerformanceData, ({ ts }) => {
       return ts;
     });
 
@@ -171,14 +177,14 @@ const RestaurantService = {
       {
         name: 'Actual',
         type: 'line',
-        data: _.map(performance, ({ v1 }) => {
+        data: _.map(filteredPerformanceData, ({ v1 }) => {
           return v1;
         })
       },
       {
         name: 'Predicted',
         type: 'line',
-        data: _.map(performance, ({ v2 }) => {
+        data: _.map(filteredPerformanceData, ({ v2 }) => {
           return v2;
         })
       }
@@ -260,8 +266,11 @@ const PageviewsService = {
     return output;
   },
   getPerformanceData: (location, weatherVariable) => {
-    const { performance } = getDataByLocation(electricityData, location);
-    const dates = _.map(performance, ({ ts }) => {
+    const { performance } = getDataByLocation(pageviewsData, location);
+
+    const filteredPerformanceData = getFilteredPerformanceData(performance);
+
+    const dates = _.map(filteredPerformanceData, ({ ts }) => {
       return ts;
     });
 
@@ -269,14 +278,14 @@ const PageviewsService = {
       {
         name: 'Actual',
         type: 'line',
-        data: _.map(performance, ({ v1 }) => {
+        data: _.map(filteredPerformanceData, ({ v1 }) => {
           return v1;
         })
       },
       {
         name: 'Predicted',
         type: 'line',
-        data: _.map(performance, ({ v2 }) => {
+        data: _.map(filteredPerformanceData, ({ v2 }) => {
           return v2;
         })
       }
@@ -299,6 +308,10 @@ const PageviewsService = {
 
 function getDataByLocation(data, location) {
   return _.filter(data, item => item.location.name === location)[0];
+}
+
+function getFilteredPerformanceData(data) {
+  return _.filter(data, item => _.includes(item.ts, '-02-'));
 }
 
 const DataService = {

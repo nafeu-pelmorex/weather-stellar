@@ -30,7 +30,7 @@ function Upload() {
         <React.Fragment>
           <Grow in={state.file.path}>
             <Box mt={2}>
-              <DenseTable />
+              <DenseTable industry={state.industry} />
             </Box>
           </Grow>
           <Grid

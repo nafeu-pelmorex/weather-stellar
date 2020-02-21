@@ -1,6 +1,5 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { MainContext } from '../../context/main';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { useHistory } from 'react-router-dom';
@@ -15,7 +14,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function Home() {
-  const { state, dispatch } = useContext(MainContext);
   const classes = useStyles();
   const history = useHistory();
 

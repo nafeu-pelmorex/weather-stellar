@@ -29,6 +29,7 @@ export const reducer = (state, action) => {
   switch (action.type) {
     case 'UPLOAD_FILE':
       const industry = getIndustryByFilename(action.payload.name);
+      console.log({ industry });
       const locationOptions = DataService[industry].getLocationOptions();
       return {
         ...state,
@@ -59,7 +60,6 @@ export const reducer = (state, action) => {
 };
 
 function getIndustryByFilename(name) {
-  console.log({ name });
   if (_.includes(name, 'restaurant') || _.includes(name, 'sircorp')) {
     return 'restaurant';
   }
