@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import Typography from '@material-ui/core/Typography';
 import Chart from '../../widgets/chart';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
@@ -16,6 +15,7 @@ import FormLabel from '@material-ui/core/FormLabel';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Radio from '@material-ui/core/Radio';
+import Options from '../../widgets/options';
 
 const useStyles = makeStyles(theme => ({
   formControl: {
@@ -28,7 +28,7 @@ function Magic() {
     <Grid item xs={12}>
       <Grid item xs={12}>
         <Box p={1}>
-          <Configuration options={
+          <Options options={
             [
               {
                 label: 'Toronto',
@@ -65,63 +65,20 @@ function Magic() {
   );
 }
 
-function Configuration({ options }) {
-  const classes = useStyles();
-  const { state, dispatch } = useContext(MainContext);
-
-  const handleChangeLocation = event => {
-    dispatch({ type: 'SELECT_LOCATION', payload: event.target.value });
-  }
-
-  const handleChangeWeatherVariable = event => {
-    dispatch({ type: 'SELECT_WEATHER_VARIABLE', payload: event.target.value });
-  }
-
+function Prediction() {
   return (
     <Grid container spacing={2}>
-      <Grid item xs={6}>
+      <Grid xs={6}>
         <Box p={2}>
-          <FormControl className={classes.formControl}>
-            <InputLabel htmlFor="location-native-simple">Location</InputLabel>
-            <Select
-              native
-              autoWidth={true}
-              value={state.location}
-              onChange={handleChangeLocation}
-              placeholder="Select Location"
-              inputProps={{
-                name: 'location',
-                id: 'location-native-simple',
-              }}
-            >
-              <option value="" />
-              {_.map(options, ({ value, label }) => {
-                return (
-                  <option value={value}>{label}</option>
-                );
-              })}
-            </Select>
-          </FormControl>
+          <Chart />
         </Box>
       </Grid>
-      <Grid item xs={6}>
+      <Grid xs={6}>
         <Box p={2}>
-          <FormControl className={classes.formControl}>
-            <FormLabel component="legend">Weather Variable</FormLabel>
-            <RadioGroup aria-label="gender" name="gender1" value={state.weatherVariable} onChange={handleChangeWeatherVariable}>
-              <FormControlLabel value="temperature" control={<Radio />} label="Temperature" />
-              <FormControlLabel value="precipitation" control={<Radio />} label="Precipitation" />
-            </RadioGroup>
-          </FormControl>
+          Information
         </Box>
       </Grid>
     </Grid>
-  );
-}
-
-function Prediction() {
-  return (
-    <div>[PREDICTION]</div>
   );
 }
 

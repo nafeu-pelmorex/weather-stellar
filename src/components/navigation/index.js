@@ -3,10 +3,10 @@ import { withRouter, useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import CloudUploadIcon from '@material-ui/icons/CloudUpload';
-import TimelineIcon from '@material-ui/icons/Timeline';
 import InfoIcon from '@material-ui/icons/Info';
 import { MainContext } from '../../context/main';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFileUpload, faMagic, faFileExport } from '@fortawesome/free-solid-svg-icons';
 
 const TAB_VALUES = [
   '/upload',
@@ -32,9 +32,9 @@ const Navigation = ({ location }) => {
         indicatorColor="primary"
         textColor="primary"
       >
-        <Tab icon={<CloudUploadIcon />} label="Upload" />
-        <Tab icon={<TimelineIcon />} label="Magic" disabled={!state.file.path} />
-        <Tab icon={<InfoIcon />} label="Why Us?" disabled={!state.file.path} />
+        <Tab icon={<FontAwesomeIcon icon={faFileUpload} color={'#2980b9'} size="3x"/>} label="Upload" />
+        <Tab icon={<FontAwesomeIcon icon={faMagic} color={'#8e44ad'} size="3x"/>} label="Magic" disabled={!state.file.path} />
+        <Tab icon={<FontAwesomeIcon icon={faFileExport} color={'#d35400'} size="3x"/>} label="Export" disabled={!state.file.path} />
       </Tabs>
     );
   }
