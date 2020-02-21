@@ -7,6 +7,8 @@ import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFilePdf, faFileCsv, faSalesForce, faFileExcel, faFileExport } from '@fortawesome/free-solid-svg-icons';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -22,21 +24,31 @@ function Export() {
   const tileData = [
     {
       title: 'PDF',
+      icon: <FontAwesomeIcon icon={faFilePdf} size="3x"/>,
     },
     {
       title: 'CSV',
+      icon: <FontAwesomeIcon icon={faFileCsv} size="3x"/>,
     },
     {
       title: 'Excel',
+      icon: <FontAwesomeIcon icon={faFileExcel} size="3x"/>,
     },
     {
       title: 'Salesforce',
+      icon: <FontAwesomeIcon icon={faFileExport} size="3x"/>,
     },
     {
       title: 'Netsuite',
+      icon: <FontAwesomeIcon icon={faFileExport} size="3x"/>,
     },
     {
       title: 'Looker',
+      icon: <FontAwesomeIcon icon={faFileExport} size="3x"/>,
+    },
+    {
+      title: 'Shopify',
+      icon: <FontAwesomeIcon icon={faFileExport} size="3x"/>,
     }
   ]
 
@@ -55,17 +67,24 @@ function Export() {
           </Typography>
         </Box>
       </Grid>
-      <Grid container>
-        <GridList align="center" cellHeight={50} cols={3}>
-          {tileData.map(tile => (
-            <GridListTile key={tile.title} cols={1}>
-              <Button variant="outlined" color="primary">
+      <GridList align="center" cellHeight={70} cols={3}>
+        {tileData.map(tile => (
+          <GridListTile key={tile.title} cols={1}>
+            <Box p={1}>
+              <Button
+                variant="outlined"
+                fullWidth={true}
+                color="primary"
+                size="large"
+                className={classes.button}
+                startIcon={tile.icon}
+              >
                 {tile.title}
               </Button>
-            </GridListTile>
-          ))}
-        </GridList>
-      </Grid>
+            </Box>
+          </GridListTile>
+        ))}
+      </GridList>
     </React.Fragment>
   );
 }
