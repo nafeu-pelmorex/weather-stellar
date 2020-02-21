@@ -37,7 +37,8 @@ const ElectricityService = {
           type: 'line',
           data: _.map(prediction, ({ v2 }) => {
             return v2;
-          })
+          }),
+          yAxisIndex: 1
         }
       );
     } else {
@@ -47,7 +48,8 @@ const ElectricityService = {
           type: 'line',
           data: _.map(prediction, ({ v3 }) => {
             return v3;
-          })
+          }),
+          yAxisIndex: 1
         }
       );
     }
@@ -145,7 +147,8 @@ const RestaurantService = {
           type: 'line',
           data: _.map(prediction, ({ v2 }) => {
             return v2;
-          })
+          }),
+          yAxisIndex: 1
         }
       );
     } else {
@@ -155,7 +158,8 @@ const RestaurantService = {
           type: 'line',
           data: _.map(prediction, ({ v3 }) => {
             return v3;
-          })
+          }),
+          yAxisIndex: 1
         }
       );
     }
@@ -253,7 +257,8 @@ const PageviewsService = {
           type: 'line',
           data: _.map(prediction, ({ v2 }) => {
             return v2;
-          })
+          }),
+          yAxisIndex: 1
         }
       );
     } else {
@@ -263,7 +268,8 @@ const PageviewsService = {
           type: 'line',
           data: _.map(prediction, ({ v3 }) => {
             return v3;
-          })
+          }),
+          yAxisIndex: 1
         }
       );
     }
