@@ -46,7 +46,10 @@ function Magic() {
       </Grid>
       <Grid item xs={12}>
         <Box p={1}>
-          <Analysis />
+          <Analysis
+            predictionAnalysis={state.prediction.analysis}
+            performanceAnalysis={state.performance.analysis}
+          />
         </Box>
       </Grid>
       <Grid item xs={12}>
@@ -64,6 +67,7 @@ function Graphs({ prediction, performance }) {
       <Grid xs={6}>
         <Box p={2}>
           <Chart
+            type={"prediction"}
             title={prediction.title}
             subtext={prediction.subtext}
             series={prediction.series}
@@ -74,6 +78,7 @@ function Graphs({ prediction, performance }) {
       <Grid xs={6}>
         <Box p={2}>
           <Chart
+            type={"performance"}
             title={performance.title}
             subtext={performance.subtext}
             series={performance.series}
@@ -85,7 +90,7 @@ function Graphs({ prediction, performance }) {
   );
 }
 
-function Analysis() {
+function Analysis({ predictionAnalysis, performanceAnalysis }) {
   return (
     <Grid container spacing={2}>
       <Grid xs={6}>
@@ -93,19 +98,15 @@ function Analysis() {
           <Card>
             <CardContent>
               <Typography color="textSecondary" gutterBottom>
-                What does this mean?
+                How does weather correlate?
               </Typography>
-              <Typography variant="h5" component="h2">
-                be
-              </Typography>
-              <Typography color="textSecondary">
-                adjective
-              </Typography>
-              <Typography variant="body2" component="p">
-                well meaning and kindly.
-                <br />
-                {'"a benevolent smile"'}
-              </Typography>
+              {predictionAnalysis.map(item => {
+                return (
+                  <Typography gutterBottom>
+                    {item}
+                  </Typography>
+                );
+              })}
             </CardContent>
           </Card>
         </Box>
@@ -115,19 +116,15 @@ function Analysis() {
           <Card>
             <CardContent>
               <Typography color="textSecondary" gutterBottom>
-                What does this mean?
+                How accurate is our prediction?
               </Typography>
-              <Typography variant="h5" component="h2">
-                be
-              </Typography>
-              <Typography color="textSecondary">
-                adjective
-              </Typography>
-              <Typography variant="body2" component="p">
-                well meaning and kindly.
-                <br />
-                {'"a benevolent smile"'}
-              </Typography>
+              {performanceAnalysis.map(item => {
+                return (
+                  <Typography gutterBottom>
+                    {item}
+                  </Typography>
+                );
+              })}
             </CardContent>
           </Card>
         </Box>

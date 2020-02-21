@@ -57,7 +57,10 @@ const ElectricityService = {
       dates,
       subtext: `Electricity demand forecast for ${_.startCase(_.toLower(location))} (2 weeks)`,
       title: "Forecast",
-      analysis: [],
+      analysis: [
+        prediction.temp_corr,
+        prediction.precip_corr
+      ],
       legend,
     };
 
@@ -96,7 +99,9 @@ const ElectricityService = {
       dates,
       subtext: `Actual vs Predicted`,
       title: "Performance",
-      analysis: [],
+      analysis: [
+        performance.accuracy
+      ],
       legend,
     };
 
@@ -158,7 +163,10 @@ const RestaurantService = {
       dates,
       subtext: `Restaurant sales forecast for ${_.startCase(_.toLower(location))} (2 weeks)`,
       title: "Forecast",
-      analysis: [],
+      analysis: [
+        prediction.temp_corr,
+        prediction.precip_corr
+      ],
       legend,
     };
 
@@ -197,7 +205,9 @@ const RestaurantService = {
       dates,
       subtext: `Actual vs Predicted`,
       title: "Performance",
-      analysis: [],
+      analysis: [
+        performance.accuracy
+      ],
       legend,
     };
 
@@ -259,7 +269,10 @@ const PageviewsService = {
       dates,
       subtext: `Page view forecast for ${_.startCase(_.toLower(location))} (2 weeks)`,
       title: "Forecast",
-      analysis: [],
+      analysis: [
+        prediction.temp_corr,
+        prediction.precip_corr
+      ],
       legend,
     };
 
@@ -298,7 +311,9 @@ const PageviewsService = {
       dates,
       subtext: `Actual vs Predicted`,
       title: "Performance",
-      analysis: [],
+      analysis: [
+        performance.accuracy
+      ],
       legend,
     };
 

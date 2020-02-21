@@ -4,6 +4,7 @@ import moment from 'moment';
 
 
 function Chart({
+  type,
   title,
   subtext,
   dates,
@@ -33,9 +34,14 @@ function Chart({
       },
       data: dates
     },
-    yAxis: {
-      type: 'value'
-    },
+    yAxis: [
+      {
+          type: 'value',
+      },
+      {
+          type: 'value',
+      }
+    ],
     series,
   };
 
