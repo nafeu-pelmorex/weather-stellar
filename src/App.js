@@ -6,7 +6,7 @@ import { createBrowserHistory } from 'history';
 import Home from './pages/home';
 import Upload from './pages/upload';
 import Magic from './pages/magic';
-import About from './pages/about';
+import Export from './pages/export';
 import { MainContextProvider } from "./context/main";
 import Navigation from './components/navigation';
 import Grid from '@material-ui/core/Grid';
@@ -61,7 +61,7 @@ function App() {
               <Route exact path="/" component={Home} />
               <Route exact path="/upload" component={Upload} />
               <Route exact path="/magic" component={Magic} />
-              <Route exact path="/about" component={About} />
+              <Route exact path="/export" component={Export} />
             </Box>
           </Paper>
         </Grid>

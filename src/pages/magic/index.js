@@ -9,7 +9,8 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import DataService from '../../data';
-
+import { useHistory } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles(theme => ({
   formControl: {}
@@ -17,8 +18,21 @@ const useStyles = makeStyles(theme => ({
 
 function Magic() {
   const { state } = useContext(MainContext);
+  const history = useHistory();
+
+  const handleClickExport = () => {
+    history.push("/export");
+  }
+
   return (
     <Grid item xs={12}>
+      <Grid item align="center" xs={12}>
+        <Box p={2}>
+          <Typography gutterBottom>
+            Analyze, compare and understand how weather is affecting your data. Slice and dice the data, download it for a variety of use cases.
+          </Typography>
+        </Box>
+      </Grid>
       <Grid item xs={12}>
         <Box p={1}>
           <Options options={state.locationOptions}/>
@@ -26,25 +40,25 @@ function Magic() {
       </Grid>
       <Grid item xs={12}>
         <Box p={1}>{
-          <Prediction prediction={state.prediction} />
+          <Graphs prediction={state.prediction} performance={state.performance} />
         }
         </Box>
       </Grid>
       <Grid item xs={12}>
         <Box p={1}>
-          <Performance performance={state.performance} />
+          <Analysis />
         </Box>
       </Grid>
       <Grid item xs={12}>
         <Box p={1}>
-          <Actions />
+          <Actions handleClickExport={handleClickExport} />
         </Box>
       </Grid>
     </Grid>
   );
 }
 
-function Prediction({ prediction }) {
+function Graphs({ prediction, performance }) {
   return (
     <Grid container spacing={2}>
       <Grid xs={6}>
@@ -59,35 +73,6 @@ function Prediction({ prediction }) {
       </Grid>
       <Grid xs={6}>
         <Box p={2}>
-          <Card>
-            <CardContent>
-              <Typography color="textSecondary" gutterBottom>
-                What does this mean?
-              </Typography>
-              <Typography variant="h5" component="h2">
-                be
-              </Typography>
-              <Typography color="textSecondary">
-                adjective
-              </Typography>
-              <Typography variant="body2" component="p">
-                well meaning and kindly.
-                <br />
-                {'"a benevolent smile"'}
-              </Typography>
-            </CardContent>
-          </Card>
-        </Box>
-      </Grid>
-    </Grid>
-  );
-}
-
-function Performance({ performance }) {
-  return (
-    <Grid container spacing={2}>
-      <Grid xs={6}>
-        <Box p={2}>
           <Chart
             title={performance.title}
             subtext={performance.subtext}
@@ -96,6 +81,35 @@ function Performance({ performance }) {
           />
         </Box>
       </Grid>
+    </Grid>
+  );
+}
+
+function Analysis() {
+  return (
+    <Grid container spacing={2}>
+      <Grid xs={6}>
+        <Box p={2}>
+          <Card>
+            <CardContent>
+              <Typography color="textSecondary" gutterBottom>
+                What does this mean?
+              </Typography>
+              <Typography variant="h5" component="h2">
+                be
+              </Typography>
+              <Typography color="textSecondary">
+                adjective
+              </Typography>
+              <Typography variant="body2" component="p">
+                well meaning and kindly.
+                <br />
+                {'"a benevolent smile"'}
+              </Typography>
+            </CardContent>
+          </Card>
+        </Box>
+      </Grid>
       <Grid xs={6}>
         <Box p={2}>
           <Card>
@@ -122,9 +136,20 @@ function Performance({ performance }) {
   );
 }
 
-function Actions() {
+function Actions({ handleClickExport }) {
   return (
-    <div>[ACTIONS]</div>
+    <Grid
+      container
+      direction="row"
+      justify="center"
+      alignItems="center"
+    >
+      <Box mt={2}>
+        <Button onClick={handleClickExport} variant="outlined" color="primary">
+          Export
+        </Button>
+      </Box>
+    </Grid>
   );
 }
 

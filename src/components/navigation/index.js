@@ -11,7 +11,7 @@ import { faFileUpload, faMagic, faFileExport } from '@fortawesome/free-solid-svg
 const TAB_VALUES = [
   '/upload',
   '/magic',
-  '/about'
+  '/export'
 ];
 
 const Navigation = ({ location }) => {
