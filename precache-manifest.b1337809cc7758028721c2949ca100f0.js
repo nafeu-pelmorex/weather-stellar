@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e08251efd4b60d965c9350be14443ab4",
+    "revision": "2885f8579a3cf63e18b285fdac9235b6",
     "url": "/weather-stellar/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/weather-stellar/static/css/2.e5cf7328.chunk.css"
   },
   {
-    "revision": "72dc88d0cca493f8fc43",
+    "revision": "0f473923f3810caaf4f9",
     "url": "/weather-stellar/static/css/main.1c959abd.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/weather-stellar/static/js/2.5e234609.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "72dc88d0cca493f8fc43",
-    "url": "/weather-stellar/static/js/main.efc914b8.chunk.js"
+    "revision": "0f473923f3810caaf4f9",
+    "url": "/weather-stellar/static/js/main.0e914a42.chunk.js"
   },
   {
     "revision": "a6e883b36cb946ab71c6",

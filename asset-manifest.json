@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/weather-stellar/static/css/main.1c959abd.chunk.css",
-    "main.js": "/weather-stellar/static/js/main.efc914b8.chunk.js",
-    "main.js.map": "/weather-stellar/static/js/main.efc914b8.chunk.js.map",
+    "main.js": "/weather-stellar/static/js/main.0e914a42.chunk.js",
+    "main.js.map": "/weather-stellar/static/js/main.0e914a42.chunk.js.map",
     "runtime-main.js": "/weather-stellar/static/js/runtime-main.aec5ec36.js",
     "runtime-main.js.map": "/weather-stellar/static/js/runtime-main.aec5ec36.js.map",
     "static/css/2.e5cf7328.chunk.css": "/weather-stellar/static/css/2.e5cf7328.chunk.css",
     "static/js/2.5e234609.chunk.js": "/weather-stellar/static/js/2.5e234609.chunk.js",
     "static/js/2.5e234609.chunk.js.map": "/weather-stellar/static/js/2.5e234609.chunk.js.map",
     "index.html": "/weather-stellar/index.html",
-    "precache-manifest.577195adbfab1163a2e1c7737ac269a9.js": "/weather-stellar/precache-manifest.577195adbfab1163a2e1c7737ac269a9.js",
+    "precache-manifest.b1337809cc7758028721c2949ca100f0.js": "/weather-stellar/precache-manifest.b1337809cc7758028721c2949ca100f0.js",
     "service-worker.js": "/weather-stellar/service-worker.js",
     "static/css/2.e5cf7328.chunk.css.map": "/weather-stellar/static/css/2.e5cf7328.chunk.css.map",
     "static/css/main.1c959abd.chunk.css.map": "/weather-stellar/static/css/main.1c959abd.chunk.css.map",
@@ -21,6 +21,6 @@
     "static/css/2.e5cf7328.chunk.css",
     "static/js/2.5e234609.chunk.js",
     "static/css/main.1c959abd.chunk.css",
-    "static/js/main.efc914b8.chunk.js"
+    "static/js/main.0e914a42.chunk.js"
   ]
 }
